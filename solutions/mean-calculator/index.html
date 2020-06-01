@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function meanCalculator(numbersArray) {
+        var sum = 0;
+        var numbersInArray = numbersArray.length;
+        for (var i = 0; i < numbersInArray; i++) {
+          sum += numbersArray[i];
+        }
+
+        return (sum / numbersInArray).toFixed(1);
+      }
+    </script>
+  </body>
+</html>
