@@ -15,13 +15,16 @@
       function getWordCount2(sentence) {
         var wordArray = 1;
 
-        for(var i = 0; i < sentence.length; i++) {
-          if(sentence[0] === " ") {
-            continue;
-          } else if (sentence[i] === " ") {
+        for (var i = 0; i < sentence.length; i++) {
+          if (sentence[i] === " ") {
             wordArray++;
           }
         }
+
+        // exceptional case
+        // if (sentence[0] === " " || sentence[sentence.length - 1] === " ") {
+        //   wordArray--;
+        // }
 
         return wordArray;
       }
