@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decimal Counter</title>
+  </head>
+  <body>
+    <script>
+      function decimalPlaceCounter(stringNumber) {
+        var dotPosition = stringNumber.indexOf(".");
+
+        if (dotPosition === -1) {
+          dotPosition = 0;
+        } else {
+          dotPosition = stringNumber.length - dotPosition - 1;
+        }
+
+        return dotPosition;
+      }
+    </script>
+  </body>
+</html>
