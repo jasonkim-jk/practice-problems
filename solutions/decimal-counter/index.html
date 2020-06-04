@@ -18,6 +18,18 @@
 
         return dotPosition;
       }
+
+      function decimalPlaceCounter2(stringNumber) {
+        var dotPosition = 0;
+
+        for(var i = 0; i < stringNumber.length; i++) {
+          if(stringNumber[i] === ".") {
+            dotPosition = stringNumber.length - i - 1;
+          }
+        }
+
+        return dotPosition;
+      }
     </script>
   </body>
 </html>
