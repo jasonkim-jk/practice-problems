@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>is-within-range</title>
+  </head>
+  <body>
+    <script>
+      // Problem
+      // - write a code to check a number is within the two number
+
+      // Pseudocode
+      // 1. define a function named isWithinRange
+      //   - This function takes two parameters
+      //   - 1st parameter:
+      //      . parameter name: number
+      //      . datatype: number
+      //   - 2nd parameter:
+      //      . parameter name: rangeObject
+      //      . datatype: object which has two property - min, max
+      // 2. check the 1st parameter number is within two numbers
+      //   - condition checking:
+      //      . the number is greater than or equal to min
+      //      . the number is less than or equal to max
+      // 3. if the number is within min and max, return value must be true
+      //    otherwise, it will return false.
+
+
+      function isWithinRange (number, rangeObject) {
+        if(number >= rangeObject.min && number <= rangeObject.max) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
