@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Builder</title>
+  </head>
+  <body>
+    <script>
+      // function: returns an array in which the word is spelled out by adding a letter for each index until the word is completed
+      // @parameter: a string
+      // @return: an array
+      //
+      // A string is used to store a word which is concaternated with each letter by increasing the index of the input string
+      // An array is used to store words which are the previous string
+      // The string an array variables are used within for loop to save each values.
+      // After finishing the loop as many as the length of the argument string, the array variable is returned.
+
+      function wordBuilder(wordToSpell) {
+        var newArray = [];
+        var word = "";
+
+        for (var i = 0; i < wordToSpell.length; i++) {
+          word += wordToSpell[i];
+          newArray.push(word);
+        }
+
+        return newArray;
+      }
+    </script>
+  </body>
+</html>
