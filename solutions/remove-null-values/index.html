@@ -19,12 +19,23 @@
         var newArray = [];
 
         for (var i = 0; i < array.length; i++) {
-          if(array[i] === null) {
+          if (array[i] === null) {
             continue;
           }
-            newArray.push(array[i]);
+          newArray.push(array[i]);
         }
-          return newArray;
+        return newArray;
+      }
+
+      function removeNullValues2(array) {
+        var newArray = [];
+
+        for (var i = 0; i < array.length; i++) {
+          if (array[i] !== null) {
+            newArray.push(array[i]);
+          }
+        }
+        return newArray;
       }
     </script>
   </body>
