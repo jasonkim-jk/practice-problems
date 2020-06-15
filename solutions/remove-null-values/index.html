@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Null Values</title>
+  </head>
+  <body>
+    <script>
+      // @function: This function deletes all null values from an array received by a parameter
+      // @parameter: an array
+      // @return: an array
+      //
+      // Create an array to store the result array after removing null values
+      // To remove null values from a given array, loop and check all the indexed from input array which is same with null
+      // Return the new array without null values
+
+      function removeNullValues(array) {
+        var newArray = [];
+
+        for (var i = 0; i < array.length; i++) {
+          if (array[i] === null) {
+            continue;
+          }
+          newArray.push(array[i]);
+        }
+        return newArray;
+      }
+
+      function removeNullValues2(array) {
+        var newArray = [];
+
+        for (var i = 0; i < array.length; i++) {
+          if (array[i] !== null) {
+            newArray.push(array[i]);
+          }
+        }
+        return newArray;
+      }
+    </script>
+  </body>
+</html>
