@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // @function: check whether the input date is December 24th or not
+      // @parameter: a date object
+      // @return: boolean
+      //
+      // check the month equals December(number 11) and date equals 24th (number 24)
+      // return value is true if the date is December 24th, false if the date is other dates
+
+      function isSantaComing(dateObject) {
+        return dateObject.getMonth() === 11 && dateObject.getDate() === 24
+      }
+    </script>
+  </body>
+</html>
