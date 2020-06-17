@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odd Up Even Down</title>
+  </head>
+  <body>
+    <script>
+      // @function: add values are increase by 1 and even values are decreased by 1 within the argument array
+      // @parameter: an array of numeric values
+      // @return: an array
+      //
+      // check the values if the value is even or odd of the array while looping
+      // to check the the number is odd or even, divide it by 2 and check the remainder
+      // if the remainder is 0, then decrease by 1, the other, increase by 1
+
+      function oddUpEvenDown(array) {
+        var result = [];
+
+        for (var i = 0; i < array.length; i++) {
+          if(array[i] % 2 === 0) {
+            result[i] = --array[i];
+          } else {
+            result[i] = ++array[i];
+          }
+        }
+
+        return result;
+      }
+    </script>
+  </body>
+</html>
