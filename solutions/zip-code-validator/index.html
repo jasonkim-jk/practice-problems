@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zip Code Validator</title>
+  </head>
+  <body>
+    <script>
+      // function: This function checks whether an input argument is a valid zip code or not
+      //          - Must only contain numbers,
+      //          - Must not contain any spaces,
+      //          - Must not contain more than five digits in length
+      // parameter: a string
+      // return: boolean
+      //
+      // check each character is a number and not a space in a given string while looping
+      // if each character is satisfied all the given condition, return true
+
+      function zipCodeValidator(zipToValidate) {
+        let result = "";
+
+        for (let i = 0; i < zipToValidate.length; i++) {
+          if(zipToValidate[i] >= 0 && zipToValidate[i] <= 9 && zipToValidate[i] !== " ") {
+            result += zipToValidate[i];
+          } else {
+            return false;
+          }
+        }
+
+        return result.length <= 5 ? true : false;
+      }
+    </script>
+  </body>
+</html>
