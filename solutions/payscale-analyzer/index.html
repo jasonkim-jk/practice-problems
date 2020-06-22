@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payscale Analyzer</title>
+  </head>
+  <body>
+    <script>
+      // function: returns a number between the highest and lowest
+      // parameter: an array of numeric values
+      // return: a number
+      //
+      // usr for loop to check which one is the highest and lowest among all array index values
+      // if a current index value is larger than the previous max value, save it to the current max
+      // if a current index value is lower than the previous min value, save it to the current min
+
+      function payscaleAnalyzer(payList) {
+        let currentMax = Number.NEGATIVE_INFINITY;
+        let currentMin = Number.POSITIVE_INFINITY;
+
+        for (let i = 0; i < payList.length; i++) {
+          if (payList[i] > currentMax) {
+            currentMax = payList[i];
+          }
+          if (payList[i] < currentMin) {
+            currentMin = payList[i];
+          }
+        }
+
+        return currentMax - currentMin;
+      }
+
+      function payscaleAnalyzer2(payList) {
+        return Math.max(...payList) - Math.min(...payList);
+      }
+    </script>
+  </body>
+</html>
