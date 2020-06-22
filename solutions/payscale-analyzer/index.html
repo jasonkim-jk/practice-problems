@@ -22,7 +22,8 @@
         for (let i = 0; i < payList.length; i++) {
           if (payList[i] > currentMax) {
             currentMax = payList[i];
-          } else if (payList[i] < currentMin) {
+          }
+          if (payList[i] < currentMin) {
             currentMin = payList[i];
           }
         }
