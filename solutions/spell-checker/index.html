@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spell checker</title>
+  </head>
+  <body>
+    <script>
+      // to confirm the index word of each input array, use for loop and compare each index values
+      // if the index values are same each other, save it as a value of the correct property
+      // if not, save it as a value of the incorrect property
+
+      function spellChecker(userWords, correctWords) {
+        let result = { correct: [], incorrect: [] };
+
+        for(let i = 0; i < userWords.length; i++) {
+          if(userWords[i] === correctWords[i]) {
+            result.correct.push(correctWords[i]);
+          } else {
+            result.incorrect.push(userWords[i]);
+          }
+        }
+
+        return result;
+      }
+    </script>
+  </body>
+</html>
