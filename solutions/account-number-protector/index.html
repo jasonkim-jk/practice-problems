@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>account number protector</title>
+  </head>
+  <body>
+    <script>
+      // input number string should be longer than 3
+      // after checking the length of the input number string, store a value while looping starting with the index of length - 4
+      // after saving the last 4 digits, return those string with the prefix **
+
+      function accountNumberProtector(cardNumberString) {
+        const cardNumberLength = cardNumberString.length;
+        let lastFourDigit = "";
+
+        if(cardNumberLength < 4) return;
+
+        for(let i = cardNumberLength - 4; i < cardNumberLength; i++) {
+          lastFourDigit += cardNumberString[i];
+        }
+
+        return "**" + lastFourDigit;
+      }
+    </script>
+  </body>
+</html>
