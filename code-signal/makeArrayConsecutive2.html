@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function makeArrayConsecutive2(statues) {
+        let max = -Infinity;
+        let min = Infinity;
+        const arrayLength = statues.length;
+
+        for (let i = 0; i < arrayLength; i++) {
+          const currentElement = statues[i];
+          if (currentElement > max) {
+            max = currentElement;
+          }
+          if (currentElement < min) {
+            min = currentElement;
+          }
+        }
+        return max - min + 1 - arrayLength;
+      }
+    </script>
+  </body>
+</html>

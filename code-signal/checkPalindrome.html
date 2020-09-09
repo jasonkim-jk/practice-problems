@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function checkPalindrome(inputString) {
+        const stringLength = inputString.length;
+        const halfOfString = stringLength / 2;
+
+        for (let i = 0; i < halfOfString; i++) {
+          if (inputString[i] !== inputString[stringLength - 1 - i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>
