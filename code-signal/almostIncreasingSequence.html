@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function almostIncreasingSequence(sequence) {
+        let invalidItemsCount = 0;
+
+        for (let i = 1; i < sequence.length; i++) {
+          if (sequence[i] <= sequence[i - 1]) {
+            invalidItemsCount++;
+            if (invalidItemsCount > 1) return false;
+            if (sequence[i] <= sequence[i - 2] && sequence[i + 1] <= sequence[i - 1]) return false;
+          }
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
