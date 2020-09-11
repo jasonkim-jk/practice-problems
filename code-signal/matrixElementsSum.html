@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function matrixElementsSum(matrix) {
+        let sum = 0;
+
+        for (let j = 0; j < matrix[0].length; j++) {
+          for (let i = 0; i < matrix.length; i++) {
+            if (matrix[i][j] === 0) {
+              break;
+            }
+            sum += matrix[i][j];
+          }
+        }
+
+        return sum;
+      }
+    </script>
+  </body>
+</html>
