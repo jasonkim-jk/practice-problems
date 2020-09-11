@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function allLongestStrings(inputArray) {
+        let maxLength = -Infinity;
+        const result = [];
+
+        inputArray.forEach((element) => {
+          if (element.length > maxLength) {
+            maxLength = element.length;
+          }
+        });
+
+        inputArray.forEach((element) => {
+          if (element.length === maxLength) {
+            result.push(element);
+          }
+        });
+
+        return result;
+      }
+
+      function allLongestStrings2(inputArray) {
+        let maxLength = Math.max(...inputArray.map((element) => element.length));
+        return inputArray.filter((x) => x.length === maxLength);
+      }
+    </script>
+  </body>
+</html>
