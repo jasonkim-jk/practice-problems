@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function commonCharacterCount(s1, s2) {
+        let result = {};
+        let resultCount = 0;
+
+        for (let i = 0; i < s1.length; i++) {
+          let firstArrayCommonChar = 0;
+          let secondArrayCommonChar = 0;
+
+          for (let j = 0; j < s1.length; j++) {
+            if (s1[i] === s1[j]) {
+              firstArrayCommonChar++;
+            }
+          }
+
+          for (let k = 0; k < s2.length; k++) {
+            if (s1[i] === s2[k]) {
+              secondArrayCommonChar++;
+            }
+          }
+
+          if (firstArrayCommonChar && secondArrayCommonChar) {
+            result[s1[i]] = Math.min(firstArrayCommonChar, secondArrayCommonChar);
+          }
+        }
+
+        for (const property in result) {
+          resultCount += parseInt(result[property]);
+        }
+
+        return resultCount;
+      }
+
+      function commonCharacterCount2(s1, s2) {
+        for (let i = 0; i < s1.length; i++) {
+          s2 = s2.replace(s1[i], "!");
+        }
+        return s2.replace(/[^!]/g, "").length;
+      }
+    </script>
+  </body>
+</html>
