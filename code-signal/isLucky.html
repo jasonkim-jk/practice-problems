@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mean calculator</title>
+  </head>
+  <body>
+    <script>
+      function isLucky(n) {
+        const numArray = n.toString().split("");
+        const arrayCount = numArray.length;
+        let fisrtHalf = 0;
+        let secondHalf = 0;
+
+        for (let i = 0; i < arrayCount; i++) {
+          if (i < arrayCount / 2) {
+            fisrtHalf += parseInt(numArray[i]);
+          } else {
+            secondHalf += parseInt(numArray[i]);
+          }
+        }
+
+        if (fisrtHalf === secondHalf) return true;
+        else return false;
+      }
+    </script>
+  </body>
+</html>
