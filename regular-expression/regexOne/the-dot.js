@@ -6,5 +6,5 @@ const tasks = ["cat.", "896.", "?=+.", 'abc1'];
 const regex = /.{3}\./;
 
 tasks.forEach(element => {
-  console.log(regex.test(element))
+  regex.test(element) ? console.log("Match") : console.log("Skip");
 })
