@@ -9,7 +9,7 @@ const tasks = [
   "https://s3cur3-server.com:9999/",
   "market://search/angry%20birds"
 ];
-const regex = /^(\w+):\/\/([a-z0-9_-]*[\.]?[a-z]+)[:]?(\d+)?/;
+const regex = /^(\w+):\/\/([\w-.]+)[:]?(\d+)?/;
 
 tasks.forEach((element) => {
   regex.test(element) ? console.log("Capture") : console.log("Skip");
