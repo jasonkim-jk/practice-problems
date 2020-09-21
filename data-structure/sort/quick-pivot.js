@@ -1,4 +1,4 @@
-function pivot(array, start = 0, end = array.length + 1) {
+function pivot(array, start = 0, end = array.length - 1) {
   let pivot = array[start];
   let swapIndex = start;
 
