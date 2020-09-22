@@ -133,15 +133,35 @@ class SinglyLinkedList {
       return removedNode;
     }
   }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let next = null;
+    let prev = null;
+
+    for(let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
 console.log(list.push(100));
 console.log(list.push(200));
 console.log(list.push(300));
+console.log(list.push(400));
+console.log(list.push(500));
+console.log(list.reverse());
 console.log(list.get(0));
 console.log(list.get(1));
 console.log(list.get(2));
-console.log(list.remove(2));
-console.log(list.get(0));
-console.log(list.get(1));
+console.log(list.get(3));
+console.log(list.get(4));
