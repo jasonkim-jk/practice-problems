@@ -74,10 +74,10 @@ class SinglyLinkedList {
     return this;
   }
 
-  get(val) {
-    if (val < 0 || val >= this.length) return null;
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
 
-    let loopCount = val;
+    let loopCount = index;
     let currentNode = this.head;
 
     while (loopCount) {
@@ -85,7 +85,17 @@ class SinglyLinkedList {
       loopCount--;
     }
 
-    return currentNode.val;
+    return currentNode;
+  }
+
+  set(index, val) {
+    const node = this.get(index);
+    if (node) {
+      node.val = val;
+      return true;
+    }
+
+    return false;
   }
 }
 
@@ -96,7 +106,8 @@ console.log(list.push("good"));
 console.log(list.push("morning"));
 console.log(list.unshift("UNSHIFT"));
 console.log(list.get(0));
-console.log(list.get(1));
-console.log(list.get(2));
-console.log(list.get(3));
-console.log(list.get(4));
+console.log(list.set(0, "changed"));
+console.log(list.get(0));
+// console.log(list.get(2));
+// console.log(list.get(3));
+// console.log(list.get(4));
