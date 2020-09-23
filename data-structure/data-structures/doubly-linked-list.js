@@ -45,13 +45,40 @@ class DoublyLinkedList {
     this.length--;
     return currentTail;
   }
+
+  shift() {
+    // check if length is 0, if so just return undefined
+    if (!this.head) return undefined;
+
+    // get the current head and save it to a new variable
+    const oldHead = this.head;
+
+    // check if length is 1,
+    if (this.length === 1) {
+      // if so, set the head and tail are null
+      this.head = null;
+      this.tail = null;
+    } else {
+      // if not,
+      // update the head to next of the old head
+      // update the prev of the new head to null
+      // update the old head's next to null
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null;
+    }
+    // decrese the length by 1
+    this.length--;
+
+    // return the old head
+    return oldHead;
+  }
 }
 
 const list = new DoublyLinkedList();
 console.log(list.push(10));
 console.log(list.push(20));
 console.log(list.push(30));
-console.log(list.pop());
+console.log(list.shift());
 console.log(list.push(40));
-console.log(list.pop());
-console.log(list.pop());
+// console.log(list.pop());
