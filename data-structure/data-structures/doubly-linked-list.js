@@ -140,6 +140,32 @@ class DoublyLinkedList {
     // if not, reture false
     return false;
   }
+
+  insert(index, val) {
+    // check if the index is valid
+    if(index < 0 || index > this.length) return false;
+
+    // if the index is 0, then do unshift
+    if(index === 0) {
+      return !!this.unshift(val);
+    // if the index is same with the length of the list, do push
+    } else if (index === this.length) {
+      return !!this.push(val);
+    // otherwise,
+    } else {
+      // get a node of index - 1
+      // adjust the previous, new, next nodes to link properly
+      // increase the length by 1 and return true
+      const newNode = new Node(val);
+      const prevNode = this.get(index - 1);
+      newNode.next = prevNode.next;
+      prevNode.next.prev = newNode;
+      newNode.prev = prevNode;
+      prevNode.next = newNode;
+      this.length++;
+      return true;
+    }
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -147,6 +173,7 @@ console.log(list.push(10));
 console.log(list.push(20));
 console.log(list.push(30));
 console.log(list.push(40));
-console.log(list.set(0, 9));
-console.log(list.set(-1, 9));
+console.log(list.insert(0, 5));
 console.log(list.get(0));
+console.log(list.get(1));
+console.log(list.get(2));
