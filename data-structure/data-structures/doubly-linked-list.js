@@ -126,6 +126,20 @@ class DoublyLinkedList {
     }
     return currentNode;
   }
+
+  set(index, val) {
+    // get the result of the index using get method
+    const node = this.get(index);
+
+    // if the result is valid, change the value to be the input val and reture true
+    if(node) {
+      node.val = val;
+      return true;
+    }
+
+    // if not, reture false
+    return false;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -133,9 +147,6 @@ console.log(list.push(10));
 console.log(list.push(20));
 console.log(list.push(30));
 console.log(list.push(40));
-console.log(list.get(-1));
+console.log(list.set(0, 9));
+console.log(list.set(-1, 9));
 console.log(list.get(0));
-console.log(list.get(1));
-console.log(list.get(2));
-console.log(list.get(3));
-console.log(list.get(4));
