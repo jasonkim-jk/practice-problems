@@ -99,10 +99,43 @@ class DoublyLinkedList {
     // return the list
     return this;
   }
+
+  get(index) {
+    // check the input index is valid
+    if(index < 0 || index >= this.length) return null;
+
+    // check the index is closer to the head or tail
+    let currentNode;
+    if (index <= this.length / 2) {
+      currentNode = this.head;
+      // if the index is less than or equal to half the length of the list
+      // loop through the list from the head to the middle
+      // find the index and return the node.
+      for (let i = 1; i <= index; i++) {
+        currentNode = currentNode.next;
+      }
+      return currentNode;
+    } else {
+      // if not
+      // loop through the list from the tail to the middle
+      // find the index and return the node
+      currentNode = this.tail;
+      for (let i = this.length - 1; i > index; i--) {
+        currentNode = currentNode.prev;
+      }
+    }
+    return currentNode;
+  }
 }
 
 const list = new DoublyLinkedList();
 console.log(list.push(10));
 console.log(list.push(20));
 console.log(list.push(30));
-console.log(list.unshift(0));
+console.log(list.push(40));
+console.log(list.get(-1));
+console.log(list.get(0));
+console.log(list.get(1));
+console.log(list.get(2));
+console.log(list.get(3));
+console.log(list.get(4));
