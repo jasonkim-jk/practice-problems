@@ -14,34 +14,44 @@ class DoublyLinkedList {
   }
 
   push(val) {
+    // make a new node
     const newNode = new Node(val);
 
+    // check if there is a node or not
     if (!this.head) {
+      // if so, set the head and tail to be the new node
       this.head = newNode;
       this.tail = newNode;
     } else {
+      // if not, assign proper properties
       this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
     }
 
+    // increase the length of the list and return list
     this.length++;
     return this;
   }
 
   pop() {
+    // check if there is a node or not. if empty, return undefined
     if (!this.head) return undefined;
 
+    // get the last node
     const currentTail = this.tail;
     if (this.length === 1) {
+      // if there is one node, assign null to head and tail
       this.head = null;
       this.tail = null;
     } else {
+      // if not, change the tail to be the prev node
       this.tail = currentTail.prev;
       this.tail.next = null;
       currentTail.prev = null;
     }
 
+    // decrease the length of the list and return the last node
     this.length--;
     return currentTail;
   }
