@@ -30,6 +30,26 @@ class Queue {
     this.size++;
     return this;
   }
+
+  dequeue() {
+    // check if the size is 0 or not, if 0, return null
+    if (!this.first) return null;
+
+    // save the first to a new variable
+    const firstNode = this.first;
+
+    // if the size is 1, set the last to be null
+    if (this.size === 1) {
+      this.last = null;
+    }
+
+    // if not, set the next of the first to be the first
+    this.first = this.first.next;
+
+    // decrease the size by 1 and return
+    this.size--;
+    return firstNode.value;
+  }
 }
 
 const queue = new Queue();
@@ -37,3 +57,7 @@ console.log(queue.enqueue(Math.floor(Math.random() * 100)));
 console.log(queue.enqueue(Math.floor(Math.random() * 100)));
 console.log(queue.enqueue(Math.floor(Math.random() * 100)));
 console.log(queue.enqueue(Math.floor(Math.random() * 100)));
+console.log(queue.dequeue());
+console.log(queue.dequeue());
+console.log(queue.dequeue());
+console.log(queue.dequeue());
