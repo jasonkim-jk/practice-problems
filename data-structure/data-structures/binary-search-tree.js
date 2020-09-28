@@ -81,6 +81,29 @@ class BinarySearchTree {
       }
     }
   }
+
+  BFS() {
+    // declare a new array to save the tree data and visited nodes
+    const queue = [];
+    const result = [];
+
+    // save the value of the root node to the queue
+    queue.push(this.root);
+
+    // loop as long as there is anything in the queue
+    while (queue.length) {
+      // dequeue a node from the queue and push the value of the node into the result array
+      const currentNode = queue.shift();
+      result.push(currentNode.value);
+      // if there is a left on the node dequeued, add it to the queue
+      if (currentNode.left) queue.push(currentNode.left);
+      // if there is a right on the node dequeued, add it to the queue
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+
+    // return the result array
+    return result;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -102,3 +125,4 @@ console.log(tree.find(37));
 console.log(tree.find(50));
 console.log(tree.find(18));
 console.log(tree.find(28));
+console.log(tree.BFS());
