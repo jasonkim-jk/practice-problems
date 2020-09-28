@@ -188,7 +188,6 @@ class DoublyLinkedList {
     } else if (index === this.length - 1) {
       return this.pop();
     } else {
-      // otherwise,
       // get a node of index
       // adjust the previous and next nodes to link properly
       // decrease the length by 1 and return the removed node
