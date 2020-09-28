@@ -104,6 +104,26 @@ class BinarySearchTree {
     // return the result array
     return result;
   }
+
+  DFSPreOrder() {
+    // create an array to store the values of visited nodes
+    const result = [];
+    // store the root node in a variable
+    const currentNode = this.root;
+    // declare a helper function which accepts a node
+    function traverse(node) {
+      // push the value of the node to the variable that stores the values
+      result.push(node.value);
+      // if the node has a left property, call the helper function with the left property on the node
+      if (node.left) traverse(node.left);
+      // if the node has a right property, call the helper function with the right property on the node
+      if (node.right) traverse(node.right);
+    }
+    // invoke the helper function passing the root node
+    traverse(currentNode);
+    // return the result array
+    return result;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -126,3 +146,4 @@ console.log(tree.find(50));
 console.log(tree.find(18));
 console.log(tree.find(28));
 console.log(tree.BFS());
+console.log(tree.DFSPreOrder());
