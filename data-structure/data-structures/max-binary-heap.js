@@ -9,7 +9,7 @@ class MaxBinaryHeap {
     const result = this.values;
 
     // declare a helper function to bubble the value up to its currect spot
-    function compare(index) {
+    function bubbleUp(index) {
       // get the parent index
       const parentIndex = Math.floor((index - 1) / 2);
       let currentValue = result[index];
@@ -20,15 +20,49 @@ class MaxBinaryHeap {
         result[index] = parentValue;
         result[parentIndex] = currentValue;
         // repeat starting with the parent node
-        compare(parentIndex);
+        bubbleUp(parentIndex);
       }
     }
 
     // invoke the helper function passing the last index as an argument
-    compare(result.length - 1);
+    bubbleUp(result.length - 1);
 
     // return the heap array
     return this.values;
+  }
+
+  extractMax() {
+    // get the max value
+    const max = this.values[0];
+    // get the last element of the list
+    const last = this.values.pop();
+    // check if the length of the array is 0 or not, if so, return
+    if (!this.values.length) return max;
+
+    // set the first index to be the value of the last
+    this.values[0] = last;
+    const temp = this.values;
+
+    // declare a helper function to sink the value down to its currect spot
+    function sinkDown(index) {
+      // get each index
+      const currentIndex = index;
+      const leftChildIndex = 2 * currentIndex + 1;
+      const rightChildIndex = 2 * currentIndex + 2;
+      // get the child element which is bigger
+      const biggerChildIndex = temp[leftChildIndex] - temp[rightChildIndex] > 0 ? leftChildIndex : rightChildIndex;
+
+      // check if the child is bigger than the parent element
+      if (temp[currentIndex] < temp[biggerChildIndex]) {
+        // if so, swap two values
+        [temp[currentIndex], temp[biggerChildIndex]] = [temp[biggerChildIndex], temp[currentIndex]];
+        // keep going
+        sinkDown(biggerChildIndex);
+      }
+    }
+    // invoke the helper function and return the max
+    sinkDown(0);
+    return max;
   }
 }
 
@@ -40,3 +74,11 @@ console.log(heap.insert(70));
 console.log(heap.insert(72));
 console.log(heap.insert(172));
 console.log(heap.insert(272));
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
+console.log(heap.extractMax());
