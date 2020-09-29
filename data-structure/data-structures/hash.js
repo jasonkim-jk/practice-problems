@@ -25,12 +25,37 @@ class HashTable {
     this.keyMap[index].push([key, value]);
   }
 
+  get(key) {
+    // hashes the key
+    const index = this._hash(key);
+    let result;
+    // check if there is any data in the index of hash table
+    if (this.keyMap[index]) {
+      // if so, retrieves the key-value pair in the keyMap
+      this.keyMap[index].forEach(element => {
+        if(element[0] === key) {
+          result = element[1];
+        }
+      })
+    }
+    // if not, return undefined
+    return result;
+  }
+
   print() {
     return this.keyMap;
   }
 }
 
-const hashTable = new HashTable();
-hashTable.set("hello", "world");
-hashTable.set("hi", "everyone");
-console.log(hashTable.print())
+const hashTable = new HashTable(17);
+hashTable.set("maroon", "#800000");
+hashTable.set("yellow", "#FFFF00");
+hashTable.set("olive", "#808000");
+hashTable.set("salmon", "#FA8072");
+hashTable.set("lightcoral", "#F08080");
+hashTable.set("mediumvioletred", "#C71585");
+hashTable.set("plum", "#DDA0DD");
+console.log(hashTable.print());
+console.log(hashTable.get("maroon"));
+console.log(hashTable.get("yellow"));
+console.log(hashTable.get("balck"));
