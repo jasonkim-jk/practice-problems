@@ -64,6 +64,10 @@ class MaxBinaryHeap {
     sinkDown(0);
     return max;
   }
+
+  print() {
+    return this.values;
+  }
 }
 
 const heap = new MaxBinaryHeap();
@@ -80,5 +84,7 @@ console.log(heap.extractMax());
 console.log(heap.extractMax());
 console.log(heap.extractMax());
 console.log(heap.extractMax());
+console.log(heap.print());
 console.log(heap.extractMax());
 console.log(heap.extractMax());
+console.log(heap.print());
