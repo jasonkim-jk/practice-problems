@@ -3,16 +3,19 @@ class Graph {
     this.adjacencyList = {};
   }
 
-  addVertex(name) {
+  addVertex(vertex) {
     // add a key to the adjacencyList with the name of the vertax
     // set its value to be an empty array
-    this.adjacencyList[name] = [];
+    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  }
 
+  print() {
     // return the adjacencyList
     return this.adjacencyList;
   }
 }
 
 const graph = new Graph();
-console.log(graph.addVertex("Los Angeles"));
-console.log(graph.addVertex("Las Vegas"));
+graph.addVertex("Los Angeles");
+graph.addVertex("Las Vegas");
+console.log(graph.print());
