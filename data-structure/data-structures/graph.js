@@ -17,6 +17,13 @@ class Graph {
     this.adjacencyList[vertex2].push(vertex1);
   }
 
+  removeEdge(vertex1, vertex2) {
+    // reassign the key of vertex1 to be an array that does not contain vertex2
+    this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((element) => element !== vertex2);
+    // reassign the key of vertex2 to be an array that does not contain vertex1
+    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((element) => element !== vertex1);
+  }
+
   print() {
     // return the adjacencyList
     return this.adjacencyList;
@@ -29,4 +36,6 @@ graph.addVertex("Las Vegas");
 graph.addVertex("San Jose");
 graph.addEdge("Las Vegas", "Los Angeles");
 graph.addEdge("Los Angeles", "San Jose");
+console.log(graph.print());
+graph.removeEdge("Los Angeles", "San Jose");
 console.log(graph.print());
