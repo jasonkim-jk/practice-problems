@@ -32,6 +32,36 @@ class Graph {
     this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((adjacentVertex) => adjacentVertex !== vertex1);
   }
 
+  depthFirstRecursive(vertex) {
+    // declare a result list to save
+    const result = [];
+    // mark vertex as visited
+    const visited = {};
+    const adjacencyLists = this.adjacencyList;
+
+    // create a helper function which accepts a vertex
+    function dfs(startingVertex) {
+      // check if the vertex is empty
+      if (!startingVertex) return null;
+      // place the vertex it accepts into the visited object and push that vertex into the result array
+      result.push(startingVertex);
+      visited[startingVertex] = true;
+
+      // loop over all of the values in the adjacencyList for that vertex
+      adjacencyLists[startingVertex].forEach((adjacentVertex) => {
+        // if any of those values have not been visited, invoke the helper function again
+        if (!visited[adjacentVertex]) {
+          return dfs(adjacentVertex);
+        }
+      });
+    }
+
+    // invoke the helper function
+    dfs(vertex);
+    // return the result list
+    return result;
+  }
+
   print() {
     // return the adjacencyList
     return this.adjacencyList;
@@ -39,20 +69,18 @@ class Graph {
 }
 
 const graph = new Graph();
-graph.addVertex("Los Angeles");
-graph.addVertex("Las Vegas");
-graph.addVertex("San Jose");
-graph.addVertex("Seoul");
-graph.addVertex("Boston");
-graph.addVertex("New York");
-graph.addEdge("Las Vegas", "Los Angeles");
-graph.addEdge("Los Angeles", "San Jose");
-graph.addEdge("Las Vegas", "San Jose");
-graph.addEdge("Los Angeles", "Seoul");
-graph.addEdge("Los Angeles", "New York");
-graph.addEdge("New York", "Seoul");
-graph.addEdge("New York", "Boston");
-graph.addEdge("Boston", "Los Angeles");
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E", "F");
 console.log(graph.print());
-graph.removeVertex("Los Angeles");
-console.log(graph.print());
+console.log(graph.depthFirstRecursive("A"));
