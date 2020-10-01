@@ -95,6 +95,39 @@ class Graph {
     return result;
   }
 
+  breadthFirst(vertex) {
+    // create a queue as an array to place the vertext in it
+    const queue = [];
+    // creat an array to store the nodes visited and return
+    const result = [];
+    // create an object to store nodes visited
+    const visited = {};
+
+    queue.push(vertex);
+    visited[vertex] = true;
+
+    // loop through the stack has something in it
+    while (queue.length) {
+      // dequeue the next vertex from the queue
+      const currentVertex = queue.shift();
+      // add it to the result array
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        // if that vertex hasn't been visited yet
+        if (!visited[neighbor]) {
+          // mark it as visited
+          visited[neighbor] = true;
+          // push all of its neighbors into the stack
+          queue.push(neighbor);
+        }
+      });
+    }
+
+    // return the result array
+    return result;
+  }
+
   print() {
     // return the adjacencyList
     return this.adjacencyList;
@@ -118,3 +151,4 @@ graph.addEdge("E", "F");
 console.log(graph.print());
 console.log(graph.depthFirstRecursive("A"));
 console.log(graph.depthFirstIterative("A"));
+console.log(graph.breadthFirst("A"));
