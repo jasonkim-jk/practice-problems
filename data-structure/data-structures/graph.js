@@ -62,6 +62,39 @@ class Graph {
     return result;
   }
 
+  depthFirstIterative(vertex) {
+    // declare a result list to save
+    const result = [];
+    // mark vertex as visited
+    const visited = {};
+    // declare an array to save vertices
+    const stack = [];
+
+    stack.push(vertex);
+    visited[vertex] = true;
+
+    // loop through the stack has something in it
+    while (stack.length) {
+      // pop the next vertex from the stack
+      const currentVertex = stack.pop();
+      // add it to the result array
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        // if that vertex hasn't been visited yet
+        if (!visited[neighbor]) {
+          // mark it as visited
+          visited[neighbor] = true;
+          // push all of its neighbors into the stack
+          stack.push(neighbor);
+        }
+      });
+    }
+
+    // return the result list
+    return result;
+  }
+
   print() {
     // return the adjacencyList
     return this.adjacencyList;
@@ -84,3 +117,4 @@ graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 console.log(graph.print());
 console.log(graph.depthFirstRecursive("A"));
+console.log(graph.depthFirstIterative("A"));
