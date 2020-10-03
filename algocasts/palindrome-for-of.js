@@ -4,5 +4,5 @@ function palindrome(str) {
     reversed = character + reversed;
   }
 
-  return reversed === str ? true : false;
+  return reversed === str;
 }
