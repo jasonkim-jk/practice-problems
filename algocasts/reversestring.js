@@ -11,9 +11,9 @@
 // get an element of the index and add it to a new string
 // return the reversed string
 function reverse(str) {
-  let result = "";
+  let reversed = "";
   for (let i = str.length - 1; i > -1; i--) {
-    result = result + str[i];
+    reversed += str[i];
   }
-  return result;
+  return reversed;
 }

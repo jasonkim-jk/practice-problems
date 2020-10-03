@@ -3,7 +3,5 @@
 // join the array to a string
 // return the string
 function reverse(str) {
-  const arr = str.split("");
-  arr.reverse();
-  return arr.join("");
+  return str.split("").reverse().join("");
 }

@@ -1,7 +1,7 @@
 function reverse(str) {
-  let result = "";
+  let reversed = "";
   for (let charater of str) {
-    result = charater + result;
+    reversed = charater + reversed;
   }
-  return result;
+  return reversed;
 }
