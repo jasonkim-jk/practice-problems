@@ -93,4 +93,20 @@ class LinkedList {
     const prevNode = this.getAt(index - 1);
     prevNode.next = prevNode.next.next;
   }
+
+  insertAt(data, index) {
+    let prevNode;
+    const newNode = new Node(data);
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+      return;
+    } else if (index > this.size() - 1) {
+      prevNode = this.getAt(this.size() - 1);
+    } else {
+      prevNode = this.getAt(index - 1);
+    }
+    newNode.next = prevNode.next;
+    prevNode.next = newNode;
+  }
 }
