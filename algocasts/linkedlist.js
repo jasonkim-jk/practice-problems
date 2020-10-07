@@ -71,4 +71,12 @@ class LinkedList {
       }
     }
   }
+
+  insertLast(data) {
+    const lastNode = this.getLast();
+    if (!lastNode) return null;
+
+    const newNode = new Node(data);
+    lastNode.next = newNode;
+  }
 }
