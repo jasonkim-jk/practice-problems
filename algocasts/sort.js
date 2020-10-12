@@ -43,8 +43,36 @@ function selectionSort(arr) {
   return arr;
 }
 
-function mergeSort(arr) {}
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
 
-function merge(left, right) {}
+  const middle = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, middle));
+  const right = mergeSort(arr.slice(middle));
+
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  const result = [];
+
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
+  }
+
+  // if(left.length) {
+  //   result.push(...left)
+  // }
+
+  // if(right.length) {
+  //   result.push(...right)
+  // }
+
+  return [...result, ...left, ...right];
+}
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
