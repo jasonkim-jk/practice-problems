@@ -18,7 +18,30 @@ function bubbleSort(arr) {
   return arr;
 }
 
-function selectionSort(arr) {}
+// loop from index i = 0 to the end of the array
+//   save the index of the i as the indexOfMin
+//   loop from index j = i + 1 to end of the array
+//     if the value of any index j is less than arr[indexOfMin],
+//       save the index as the new value of the indexOfMin
+//   after finishing the inner loop, swap arr[indexOfMin] and arr[i] if two index are not same
+// return arr
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let indexOfMin = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[indexOfMin]) {
+        indexOfMin = j;
+      }
+    }
+
+    if (i !== indexOfMin) {
+      [arr[indexOfMin], arr[i]] = [arr[i], arr[indexOfMin]];
+    }
+  }
+
+  return arr;
+}
 
 function mergeSort(arr) {}
 
