@@ -3,19 +3,9 @@ const array2 = ["z", "y", "i"];
 const array3 = ["z", "y", "d"];
 
 function containCommonItem(arr1 = [], arr2 = []) {
-  if(!arr1 || !arr2) return false;
+  if (!arr1 || !arr2) return false;
 
-  const mySet = new Set();
-
-  for (let element of arr1) {
-    mySet.add(element);
-  }
-
-  for (let value of arr2) {
-    if (mySet.has(value)) return true;
-  }
-
-  return false;
+  return arr1.some((item) => arr2.includes(item));
 }
 
 console.log(containCommonItem(array1, array2));
