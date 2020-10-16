@@ -1,6 +1,7 @@
 class HashTable {
   constructor(size) {
     this.data = new Array(size);
+    this.count = 0;
   }
 
   _hash(key) {
@@ -23,6 +24,7 @@ class HashTable {
     }
 
     this.data[address].push([key, value]);
+    this.count++;
     return this.data;
   }
 
@@ -70,6 +72,10 @@ class HashTable {
 
     return valuesArray;
   }
+
+  size() {
+    return this.count;
+  }
 }
 
 const myHashTable = new HashTable(4);
@@ -83,3 +89,4 @@ console.log(myHashTable.get("pens"));
 console.log(myHashTable.get("pen"));
 console.log(myHashTable.keys());
 console.log(myHashTable.values());
+console.log(myHashTable.size());
