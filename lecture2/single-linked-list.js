@@ -93,6 +93,27 @@ class LinkList {
     return currentNode;
   }
 
+  reverse() {
+    if (!this.head) return undefined;
+    if (!this.head.next) return this.head;
+
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+
+    while(second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+
+    this.head.next = null;
+    this.head = first;
+
+    return this;
+  }
+
   printList() {
     const array = [];
     let currentNode = this.head;
@@ -125,4 +146,6 @@ console.log(myLinkedList.remove(0));
 console.log(myLinkedList.remove(20));
 console.log(myLinkedList.remove(2));
 console.log(myLinkedList.remove(4));
+console.log(`size: ${myLinkedList.length}, `, myLinkedList.printList());
+console.log(myLinkedList.reverse());
 console.log(`size: ${myLinkedList.length}, `, myLinkedList.printList());
