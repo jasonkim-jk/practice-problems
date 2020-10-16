@@ -42,6 +42,34 @@ class HashTable {
       return undefined;
     }
   }
+
+  keys() {
+    const keyArray = [];
+
+    for (let raw of this.data) {
+      if (!raw) continue;
+
+      for (let element of raw) {
+        keyArray.push(element[0]);
+      }
+    }
+
+    return keyArray;
+  }
+
+  values() {
+    const valuesArray = [];
+
+    for (let raw of this.data) {
+      if (!raw) continue;
+
+      for (let element of raw) {
+        valuesArray.push(element[1]);
+      }
+    }
+
+    return valuesArray;
+  }
 }
 
 const myHashTable = new HashTable(4);
@@ -53,3 +81,5 @@ console.log(myHashTable.get("apples"));
 console.log(myHashTable.get("bananas"));
 console.log(myHashTable.get("pens"));
 console.log(myHashTable.get("pen"));
+console.log(myHashTable.keys());
+console.log(myHashTable.values());
