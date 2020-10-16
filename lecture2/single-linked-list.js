@@ -60,8 +60,30 @@ class LinkList {
     return this;
   }
 
+  remove(index) {
+    let removedNode;
+
+    if (index <= 0) {
+      removedNode = this.head;
+      this.head = removedNode.next;
+      removedNode.next = null;
+    } else if (index >= this.length - 1) {
+      removedNode = this.tail;
+      this.tail = this.traverseToIndex(this.length - 2);
+      this.tail.next = null;
+    } else {
+      const prevNode = this.traverseToIndex(index - 1);
+      removedNode = prevNode.next;
+      prevNode.next = removedNode.next;
+      removedNode.next = null;
+    }
+    this.length--;
+
+    return removedNode;
+  }
+
   traverseToIndex(index) {
-    if(index < 0 || index > this.length - 1) return undefined;
+    if (index < 0 || index > this.length - 1) return undefined;
 
     let currentNode = this.head;
     for (let i = 0; i < index; i++) {
@@ -75,7 +97,7 @@ class LinkList {
     const array = [];
     let currentNode = this.head;
 
-    while(currentNode) {
+    while (currentNode) {
       array.push(currentNode.value);
       currentNode = currentNode.next;
     }
@@ -97,4 +119,10 @@ console.log(myLinkedList.insert(5, 20));
 console.log(myLinkedList.append(25));
 console.log(`size: ${myLinkedList.length}, `, myLinkedList.printList());
 console.log(myLinkedList.insert(1, 100));
+console.log(`size: ${myLinkedList.length}, `, myLinkedList.printList());
+console.log(myLinkedList.remove(-10));
+console.log(myLinkedList.remove(0));
+console.log(myLinkedList.remove(20));
+console.log(myLinkedList.remove(2));
+console.log(myLinkedList.remove(4));
 console.log(`size: ${myLinkedList.length}, `, myLinkedList.printList());
