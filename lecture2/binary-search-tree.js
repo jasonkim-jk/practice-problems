@@ -117,6 +117,34 @@ class BinarySearchTree {
       }
     }
   }
+
+  breadthFirstSearch() {
+    const queue = [];
+    const result = [];
+    let currentNode = this.root;
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+      result.push(currentNode.value);
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+
+    return result;
+  }
+
+  breadthFirstSearchRecursive(queue = [], result = []) {
+    if (!queue.length) return result;
+
+    const currentNode = queue.shift();
+    result.push(currentNode.value);
+
+    if (currentNode.left) queue.push(currentNode.left);
+    if (currentNode.right) queue.push(currentNode.right);
+
+    return this.breadthFirstSearchRecursive(queue, result);
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -133,9 +161,12 @@ console.log(tree.lookup(1));
 console.log(tree.lookup());
 console.log(tree.lookup(undefined));
 console.log(tree.lookup(9));
-console.log(tree.remove(170));
-console.log(tree.remove(9));
+// console.log(tree.remove(170));
+// console.log(tree.remove(9));
 console.log(JSON.stringify(traverse(tree.root)));
+console.log(tree.breadthFirstSearch());
+console.log(tree.breadthFirstSearchRecursive([tree.root], []));
+
 
 function traverse(node) {
   const tree = { value: node.value };
