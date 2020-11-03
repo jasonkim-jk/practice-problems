@@ -17,10 +17,10 @@ function repeatedString(s, n) {
 
   if (!count) return 0;
 
-  let totalCount = parseInt(n / s.length) * count.length;
+  let totalCount = Math.floor(n / s.length) * count.length;
 
   for (let i = 0; i < n % s.length; i++) {
-    if (s[i] === 'a') {
+    if (s[i] === "a") {
       totalCount++;
     }
   }
@@ -28,5 +28,13 @@ function repeatedString(s, n) {
   return totalCount;
 }
 
-console.log(repeatedString('aba', 10)); // 7
+function repeatedString2(s, n) {
+  let count = (s.match(/a/g) || []).length * Math.floor(n / s.length);
+  let remainder = n % s.length;
+  let remainderCount = (s.substring(0, remainder).match(/a/g) || []).length;
+
+  return count + remainderCount;
+}
+
+console.log(repeatedString("aba", 10)); // 7
 console.log(repeatedString("a", 1000000000000)); // 1000000000000
